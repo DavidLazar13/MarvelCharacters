@@ -1,17 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navbar/>
+    <b-container>
+      <b-row class="d-flex justify-content-md-between justify-content-center">
+        <CharacterCard/>
+        <CharacterCard/>
+        <CharacterCard/>
+        <CharacterCard/>
+        <CharacterCard/>
+        <CharacterCard/>
+        <CharacterCard/>
+        <CharacterCard/>
+        <CharacterCard/>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from './components/Navbar.vue'
+import CharacterCard from './components/CharacterCard.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Navbar,
+    CharacterCard
   }
 }
 </script>
@@ -23,6 +37,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
