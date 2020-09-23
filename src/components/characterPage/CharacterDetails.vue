@@ -1,16 +1,50 @@
 <template>
-    <div>
-        <h1>Here are the characters details</h1>
-        <p>{{ this.$route.params.id }}</p>
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <img :src="url" alt="heroimg" width="100%">
+        </div>
+        <div v-for="char in character" :key="char.id" class="col-12 col-md-8 pt-4 pt-md-0" >
+                <h1>{{char.name}}</h1>
 
-        <ul>
-            <li v-for="char in character" :key="char.id">
-                {{char.name}}
-                {{char.description}}
-            </li>
+                <div v-if="char.description == 0" class="mb-5">
+                   No description available
+                </div>
+                 <div v-else class="mb-5">
+                    <p class>{{char.description}}</p>
+                </div>
 
-            <img :src="url" alt="">
-        </ul>
+                
+                <h3>Series:</h3>
+                <div v-if="series == 0" class="mb-3">
+                   No info available
+                </div>
+                 <div v-else class="mb-3">
+                    <p v-for="serie in series" :key="serie.id">
+                    {{serie.name}}
+                    </p>
+                </div>
+
+                <h3>Stories:</h3>
+                <div v-if="stories == 0" class="mb-3">
+                   No info available
+                </div>
+                 <div v-else class="mb-3">
+                    <p v-for="story in stories" :key="story.id">
+                    {{story.name}}
+                    </p>
+                </div>
+
+                <h3>Events:</h3>
+                <div v-if="events == 0" class="mb-3">
+                   No info available
+                </div>
+                 <div v-else class="mb-3">
+                    <p v-for="event in events" :key="event.id">
+                    {{event.name}}
+                    </p>
+                </div>
+
+        </div>
     </div>
 </template>
 
@@ -24,8 +58,11 @@ export default {
     data(){
         return{
             character:[],
+            series:[],
+            stories: [],
+            events: [],
             url: '',
-            size: 'portrait_uncanny.jpg',
+            size: 'standard_fantastic.jpg',
         }
     },
     mounted(){
@@ -43,8 +80,11 @@ export default {
                     result.data.data.results.forEach((item) => {
                         this.character.push(item)
                         this.url = `${item.thumbnail.path}/${this.size}`
+                        this.series = item.series.items
+                        this.stories = item.stories.items
+                        this.events = item.events.items
 
-                        console.log(this.url)
+                        console.log(this.series)
                     })
 
                 })
@@ -58,7 +98,8 @@ export default {
 
 </script>
 
-<style>
-
-
+<style scoped>
+    p{
+        margin-bottom: 0rem;
+    }
 </style>

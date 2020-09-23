@@ -1,11 +1,11 @@
 <template>
-     <b-row class="d-flex justify-content-md-between justify-content-center">
-        <CharacterCard/>
-        <ul>
-            <li v-for="character in characters" :key="character.id">
-                <router-link :to="{ name: 'character', params: {id: character.id}}">{{character.name}} </router-link>
-            </li>
-        </ul>
+     <b-row class="mx-auto">
+            <CharacterCard v-for="character in characters" :key="character.id"
+                :characterName="character.name"
+                :id="character.id"
+                :thumbnail="character.thumbnail.path + '/standard_fantastic.jpg'"
+                :altDescription="character.name">
+            </CharacterCard>
       </b-row>
 </template>
 
@@ -21,7 +21,9 @@
         },
         data() {
             return{
-                characters: []
+                characters: [],
+                url: '',
+                size: 'portrait_uncanny.jpg',
             }
         },
         mounted(){
@@ -47,3 +49,9 @@
 
 
 </script>
+
+<style>
+    .card a:hover{
+        text-decoration: none;
+    }
+</style>
