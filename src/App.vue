@@ -1,31 +1,19 @@
 <template>
   <div id="app">
-    <Navbar/>
+  <Navbar/>
     <b-container>
-      <b-row class="d-flex justify-content-md-between justify-content-center">
-        <CharacterCard/>
-        <CharacterCard/>
-        <CharacterCard/>
-        <CharacterCard/>
-        <CharacterCard/>
-        <CharacterCard/>
-        <CharacterCard/>
-        <CharacterCard/>
-        <CharacterCard/>
-      </b-row>
+    <router-view></router-view>
     </b-container>
   </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue'
-import CharacterCard from './components/CharacterCard.vue'
 
 export default {
   name: 'App',
   components: {
-    Navbar,
-    CharacterCard
+    Navbar
   }
 }
 </script>

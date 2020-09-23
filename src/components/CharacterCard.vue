@@ -1,26 +1,26 @@
 <template>
     <div>
-    <b-card
-        title="Card Title"
-        img-src="https://picsum.photos/600/300/?image=25"
-        img-alt="Image"
-        img-top
-        tag="article"
-        style="max-width: 20rem;"
-        class="my-3 mx-3"
-    >
-        <b-card-text>
-        Some quick example text to build on the card title and make up the bulk of the card's content.
-        </b-card-text>
-
-        <b-button href="#" variant="primary">Go somewhere</b-button>
-    </b-card>
+        <div class="card" style="width: 18rem;">
+            <img src="@/assets/standard_incredible.jpg" class="card-img-top" alt="hero">
+            <div class="card-body">
+                <h5 class="card-title">Hero Name</h5>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+    export default {
+        name: 'Character '
+    }
 </script>
 
 <style scoped>
-
+    .card{
+        text-align: left;
+        border: none;
+        -webkit-box-shadow: 4px 6px 19px 2px rgba(0,0,0,0.19);
+        -moz-box-shadow: 4px 6px 19px 2px rgba(0,0,0,0.19);
+        box-shadow: 4px 6px 19px 2px rgba(0,0,0,0.19);      
+    }
 </style>
