@@ -1,6 +1,11 @@
-# marvelcharacters
+# David Lazar
+# Yapily - Frontend Engineer Coding Challange - Marvel API 
 
 ## Project setup
+```
+Change the API Variables from .env.example file with your Marvel API keys and get rid of the .example ext
+```
+
 ```
 npm install
 ```
