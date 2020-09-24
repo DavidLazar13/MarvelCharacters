@@ -15,6 +15,7 @@
     export default {
         name: 'Character',
         props: ['characterName', 'id', 'thumbnail', 'altDescription']
+      
     }
 </script>
 

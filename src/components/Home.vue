@@ -1,7 +1,9 @@
 <template>
     <div>
+    
      <b-row class="mx-auto">
-            <CharacterCard v-for="character in characters" :key="character.id"
+     <input class="form-control mx-3" type="text" v-model="search" placeholder="search characters"/>
+            <CharacterCard v-for="character in filteredCharacters" :key="character.id"
                 :characterName="character.name"
                 :id="character.id"
                 :thumbnail="character.thumbnail.path + '/standard_fantastic.jpg'"
@@ -29,7 +31,8 @@
                 characters: [],
                 url: '',
                 size: 'portrait_uncanny.jpg',
-                offset: 20
+                offset: 21,
+                search: ''
             }
         },
         mounted(){
@@ -37,7 +40,7 @@
         },
         methods:{
             getCharacters: function(){
-                axios.get(`http://gateway.marvel.com/v1/public/characters?apikey=${public_key}&limit=20`)
+                axios.get(`http://gateway.marvel.com/v1/public/characters?apikey=${public_key}&limit=21`)
                     .then((result) => {
                         result.data.data.results.forEach((item) => {
                             console.log(item)
@@ -51,7 +54,7 @@
                 
             },
             loadMore: function(){
-                axios.get(`http://gateway.marvel.com/v1/public/characters?apikey=${public_key}&limit=20&offset=${this.offset}`)
+                axios.get(`http://gateway.marvel.com/v1/public/characters?apikey=${public_key}&limit=21&offset=${this.offset}`)
                 .then((result) => {
                         result.data.data.results.forEach((item) => {
                             console.log(item)
@@ -62,10 +65,16 @@
                     .catch((error) => {
                         console.log(error)
                     })
+            } 
+        },
+        computed: {
+                filteredCharacters: function(){
+                    return this.characters.filter((character) => {
+                       return character.name.toLowerCase().match(this.search.toLowerCase());
+                        
+                    });
+                }
             }
-            
-           
-        }
     }
 
 
