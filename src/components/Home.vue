@@ -32,7 +32,7 @@
                 url: '',
                 size: 'portrait_uncanny.jpg',
                 offset: 21,
-                search: ''
+                search: '',
             }
         },
         mounted(){
