@@ -1,5 +1,5 @@
 import Home from './components/Home.vue';
-import CharacterDetails from './components/characterPage/CharacterDetails.vue'
+import CharacterDetails from './components/CharacterPage/index.vue'
 
 export const routes = [
   {

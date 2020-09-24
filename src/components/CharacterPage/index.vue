@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-12 col-md-4">
-            <img :src="url" alt="heroimg" width="100%">
+            <img :src="url" alt="heroimg" class="hero-img">
         </div>
         <div v-for="char in character" :key="char.id" class="col-12 col-md-8 pt-4 pt-md-0" >
                 <h1>{{char.name}}</h1>
@@ -76,7 +76,6 @@ export default {
             axios.get(`http://gateway.marvel.com/v1/public/characters/${characterId}?apikey=${public_key}`)
                 .then((result) => {
                     
-                    console.log(result)
                     result.data.data.results.forEach((item) => {
                         this.character.push(item)
                         this.url = `${item.thumbnail.path}/${this.size}`
@@ -101,5 +100,8 @@ export default {
 <style scoped>
     p{
         margin-bottom: 0rem;
+    }
+    .hero-img{
+        width: 100%;
     }
 </style>

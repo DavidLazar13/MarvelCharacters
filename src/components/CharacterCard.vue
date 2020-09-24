@@ -14,8 +14,7 @@
 <script>
     export default {
         name: 'Character',
-        props: ['characterName', 'id', 'thumbnail', 'altDescription']
-      
+        props: ['characterName', 'id', 'thumbnail', 'altDescription'],
     }
 </script>
 
